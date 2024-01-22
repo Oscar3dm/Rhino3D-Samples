@@ -6,5 +6,5 @@ Welcome to my Rhino3D Code Repository! This space is dedicated to sharing a rang
 
 In this repository, you'll find:
 
-- **Functions Library:** A collection of functions that I've developed and regularly use in my professional work.
+- **o3dm_rhino:** A library of functions that I've developed and regularly use in my professional work. You can link these to your environment if you find them useful
 - **Code Examples:** Practical applications of the functions provided in the library, demonstrated in various scenarios.
