@@ -1,4 +1,3 @@
-from hmac import new
 import Rhino as rc
 import rhinoscriptsyntax as rs
 import System

@@ -1,3 +1,6 @@
+#! python 2
+
+import rhinoscriptsyntax as rs
 from o3dm_rhino.dialog import StandardDialog
 from o3dm_rhino.export import export_named_view
 import Rhino as rc
@@ -37,6 +40,7 @@ class ExportViewDialog(StandardDialog):
 			for view_name in export_views:
 				file_path = os.path.join(export_folder, view_name + '.png')
 				export_named_view(view_name, file_path)
+
 
 dialog = ExportViewDialog()
 dialog_rc = dialog.ShowModal(rc.UI.RhinoEtoApp.MainWindow)

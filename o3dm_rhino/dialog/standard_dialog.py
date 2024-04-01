@@ -4,17 +4,20 @@ import Eto.Forms as forms
 class StandardDialog(forms.Dialog[bool]):
 	'''This contains standard boilerplate for ETO modal dialogs, as well as some helper functions'''
 	def __init__(self, title):
+		#super().__init__()
 		#All dialogs need Title, Padding, Resizable
 		self.Title = title
 		self.Padding = drawing.Padding(10)
 		self.Resizable = True
 		
 		#Create the default button
-		self.DefaultButton = forms.Button(Text = 'OK')
+		self.DefaultButton = forms.Button()
+		self.DefaultButton.Text = 'OK'
 		self.DefaultButton.Click += self.OnOKButtonClick
 		
 		#Create the abort button
-		self.AbortButton = forms.Button(Text = 'Cancel')
+		self.AbortButton = forms.Button()
+		self.AbortButton.Text = 'Cancel'
 		self.AbortButton.Click += self.OnCloseButtonClick
 		
 		#Create Dynamic Layout to place gridview and button row
