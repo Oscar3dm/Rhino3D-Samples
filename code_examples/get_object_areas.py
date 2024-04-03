@@ -1,6 +1,6 @@
 import Rhino as rc
 import rhinoscriptsyntax as rs
-from o3dm_rhino.get_object_area import get_object_area
+from o3dm_rhino.geometry import get_object_area
 
 doc = rc.RhinoDoc.ActiveDoc
 layertable = doc.Layers
