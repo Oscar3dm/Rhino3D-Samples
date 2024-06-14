@@ -1,6 +1,6 @@
 import Rhino as rc
 
-def deconstruct_brep(brep):
+def decon_brep(brep):
 	"""Takes a brep and returns its faces, vertices, and edges"""
 	sub_breps = []
 	vertices = []
