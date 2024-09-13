@@ -1,5 +1,5 @@
-from o3dm_rhino.dialog import StandardDialog
-from o3dm_rhino.export import export_named_view
+from o3dm_rhino.dialog.standard_dialog import StandardDialog
+from o3dm_rhino.export.export_named_view import export_named_view
 import Rhino as rc
 import rhinoscriptsyntax as rs
 import Eto.Forms as forms

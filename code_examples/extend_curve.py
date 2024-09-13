@@ -1,5 +1,5 @@
 import Rhino as rc
-from o3dm_rhino.geometry import extend_curve
+from o3dm_rhino.geometry.extend_curve import extend_curve
 
 #-- GH/Python inputs: curve, extension_type (int), start_extension, end_extension
 

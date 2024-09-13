@@ -2,7 +2,7 @@ import Rhino as rc
 import sys
 import os
 #Make sure parent folder of o3dm_rhino is in your Rhino Module Search Paths
-from o3dm_rhino.geometry import get_surface_from_doc_object
+from o3dm_rhino.geometry.get_surface_from_doc_object import get_surface_from_doc_object
 
 doc = rc.RhinoDoc.ActiveDoc
 layertable = doc.Layers

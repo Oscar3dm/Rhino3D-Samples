@@ -1,7 +1,7 @@
 import Rhino as rc
 import rhinoscriptsyntax as rs
-from o3dm_rhino.layer import get_layers_with_name
-from o3dm_rhino.layer import create_sublayer
+from o3dm_rhino.layer.get_layers_with_name import get_layers_with_name
+from o3dm_rhino.layer.create_sublayer import create_sublayer
 
 doc = rc.RhinoDoc.ActiveDoc
 layertable = doc.Layers

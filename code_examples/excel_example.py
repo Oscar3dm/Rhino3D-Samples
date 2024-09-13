@@ -1,5 +1,5 @@
-import o3dm_rhino.excel.open_excel_file as open_excel_file
-import o3dm_rhino.excel.close_excel as close_excel
+from o3dm_rhino.excel.open_excel_file import open_excel_file
+from o3dm_rhino.excel.close_excel import close_excel
 import traceback
 
 excel_filepath = r"C:\Users\ofern\OneDrive\Documents\Test.xlsx"
