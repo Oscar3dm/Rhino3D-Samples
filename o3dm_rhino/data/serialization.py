@@ -24,32 +24,42 @@ def clean_data(data):
 			setattr(new_obj, attr, clean_data(getattr(data, attr)))
 		return new_obj
 	else:
-		return data
+		# Attempt to handle any other iterable types
+		try:
+			# Check if data is iterable (but not a string, bytes, or bytearray)
+			if hasattr(data, '__iter__') and not isinstance(data, (str, bytes, bytearray)):
+				return [clean_data(v) for v in data]
+			else:
+				# Not an iterable we want to process, return as-is
+				return data
+		except TypeError:
+			# Data is not iterable, return as-is
+			return data
 
 def reconstruct_data(data):
-    """Recursively reconstructs Rhino.Geometry objects from their JSON representations."""
-    if isinstance(data, str):
-        try:
-            geometry = rr.CommonObject.FromJSON(data)
-            if geometry is not None:
-                return geometry
-            else:
-                return data  # Not a geometry JSON string
-        except:
-            return data  # Not a valid JSON string for geometry
-    elif isinstance(data, dict):
-        return {k: reconstruct_data(v) for k, v in data.items()}
-    elif isinstance(data, list):
-        return [reconstruct_data(v) for v in data]
-    elif isinstance(data, tuple):
-        return tuple(reconstruct_data(v) for v in data)
-    elif hasattr(data, '__dict__'):
-        new_obj = data.__class__()
-        for attr in vars(data):
-            setattr(new_obj, attr, reconstruct_data(getattr(data, attr)))
-        return new_obj
-    else:
-        return data
+	"""Recursively reconstructs Rhino.Geometry objects from their JSON representations."""
+	if isinstance(data, str):
+		try:
+			geometry = rr.CommonObject.FromJSON(data)
+			if geometry is not None:
+				return geometry
+			else:
+				return data  # Not a geometry JSON string
+		except:
+			return data  # Not a valid JSON string for geometry
+	elif isinstance(data, dict):
+		return {k: reconstruct_data(v) for k, v in data.items()}
+	elif isinstance(data, list):
+		return [reconstruct_data(v) for v in data]
+	elif isinstance(data, tuple):
+		return tuple(reconstruct_data(v) for v in data)
+	elif hasattr(data, '__dict__'):
+		new_obj = data.__class__()
+		for attr in vars(data):
+			setattr(new_obj, attr, reconstruct_data(getattr(data, attr)))
+		return new_obj
+	else:
+		return data
 
 def save_data(data, file_path):
 	"""Saves the cleaned data structure to a text file after pickling."""

@@ -1,13 +1,12 @@
 import Rhino as rc
-import o3dm_rhino.data.serialization as ser
-from o3dm_rhino.geometry.bake_geometry import bake_geometry
+import rhinoscriptsyntax as rs
+import OESLib.data as data
+import OESLib.va_utilities as va_utils
+import jsonpickle
 
-#Read data
-file_path = r"C:\Users\ofern\Desktop\geometry_data.pkl" 
-data = ser.load_data(file_path)
+object_id = rs.GetObject()
+links = data.get_link_directory()
+takedown_dict = data.read_takedown_data(links)
+td_obj_dict = takedown_dict[str(object_id)]
 
-#Get values by data keys
-doc_geometry = data['doc_geometry']
-
-#Test output
-bake_geometry(doc_geometry)
+component_dict = td_obj_dict['load_components'][0]
